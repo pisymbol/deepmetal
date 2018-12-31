@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../static/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../static/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Deep Metal</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../static/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
+</head>
+
+<body class="profile-page">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
+        <div class="container">
+            <div class="dropdown button-dropdown">
+                <a href="#pablo" class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
+                    <span class="button-bar"></span>
+                    <span class="button-bar"></span>
+                    <span class="button-bar"></span>
+		</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-header">Table of Contents</a>
+		    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#home">Home</a>
+                    <a class="dropdown-item" href="#introduction">Introduction</a>
+                    <a class="dropdown-item" href="#encyclopaedia_metallum">Encyclopaedia Metallum</a>
+                    <a class="dropdown-item" href="#eda">Exploratory Data Analysis</a>
+                    <a class="dropdown-item" href="#tokenization">Tokenization</a>
+                    <a class="dropdown-item" href="#wordembeddings">Word Embeddings</a>
+                    <a class="dropdown-item" href="#sentimentanalysis">Sentiment Analysis</a>
+                    <a class="dropdown-item" href="#credits">Credits</a>
+		    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="navbar-translate">
+                <a class="navbar-brand" href="http://thedataincubator.com" rel="tooltip" title="The Data Incubator Project" data-placement="bottom">
+                   TDI
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="wrapper">
+        <div class="page-header page-header-small" id="home">
+            <div class="page-header-image" data-parallax="true" style="background-image: url('../static/img/metal-archives-logo.jpg') ;">
+			</div>
+            <div class="content-center">
+                <h1 class="title">Deep Metal</h1>
+                <p class="category">A Sentiment Analysis Classifier</p>
+            </div>
+        </div>
+        <div class="section" data-background-color="black">
+            <div class="container" id="introduction">
+                <h3 class="title text-left">Introduction</h3>
+				<p class="text-left"><strong><a href="https://en.wikipedia.org/wiki/Sentiment_analysis" target="_blank">Opinion mining or more formally, sentiment analysis</a></strong>, remains one of the most actively researched topics in natural language processing today. In this capstone, I scraped hundred of thousands of user-generated metal reviews from the <strong><a href="http://www.metal-archives.com" target="_blank">Encyclopaedia Metallum: The Metal-Archives website</a></strong> in order to build a state-of-the-art sentiment classifier using deep learning.
+				</p>
+			</div>
+            <div class="container" id="encyclopaedia_metallum">
+                <h3 class="title text-left">Encyclopaedia Metallum</h3>
+				<p class="text-left">
+				<a class="btn btn-primary" data-toggle="collapse" href="#metallum" aria-expanded="false" aria-controls="metallum">
+					Details
+				</a>
+				</p>
+				<div class="collapse" id="metallum">
+					<div class="well">
+						<p class="text-left">The Metal-Archives was founded in 2002 and has evolved into the Internet's most comprehensive database covering the metal scene. The site is entirely community driven with millions of users visiting the site daily who actively update and maintain it. The site also happens to be the single largest resource of user-generated metal reviews on the Web.
+						</p>
+						<p class="text-center">
+						<a href="https://www.metal-archives.com/review/browse" target="_blank"><img src="../static/img/ma-reviews.png" alt='Metal-Archives Reviews Page' width='1000' height='500' /></a>
+						</p>
+						<p class="text-left">Unforutnately, MA does not offer an official public developer API to access the database directly. However, the site's Javacript front-end leverages an internal JSON based interface to retrieve entries before rendering them as HTML. After getting explicit permission from MA's webmaster to use that same internal API directly, I wrote and open-sourced the <strong><a href="https://github.com/pisymbol/maq" target="_blank">Metal-Archives Query Tool</a></strong> which is a Python based command-line utility that can retrieve entries directly in CSV format. The scrapping process took several days but ultimately generated a corpus with over one hundred thousand reviews of unstructured text to analyze.</p>
+					</div>
+				</div>
+				<div class="section" data-background-color="black">
+					<div class="content">
+						<div class="social-description">
+							<h2>{{ bands }} </h2>
+							<p>Bands</p>
+						</div>
+						<div class="social-description">
+							<h2>{{ artists }} </h2>
+							<p>Artists</p>
+						</div>
+						<div class="social-description">
+							<h2>{{ labels }}</h2>
+							<p>Labels</p>
+						</div>
+						<div class="social-description">
+							<h2>{{ reviews }}</h2>
+							<p>Reviews</p>
+						</div>
+						<div class="social-description">
+							<h2>{{ albums }}</h2>
+							<p>Albums</p>
+						</div>
+						<div class="social-description">
+							<h2>{{ songs }}</h2>
+							<p>Songs</p>
+						</div>
+					</div>
+					<footer class="blockquote-footer text-center"><cite><a href="https://www.metal-archives.com/stats" target="_blank">Updated: <script> document.write(new Date())</script></a></cite></footer>
+				</div>
+			</div>
+			<div class="container" id="eda">
+				<h3 class="title text-left">Exploratory Data Analysis</h3>
+				<p class="text-left">
+				<a class="btn btn-primary" data-toggle="collapse" href="#heatmap" aria-expanded="false" aria-controls="heatmap">
+					Details
+				</a>
+				</p>
+				<div class="collapse" id="heatmap">
+					<div class="well">
+						<p class="text-left">
+						Since 2002, the number of reviews have grown steadily before reaching a peek in 2008. Notice that the number of reviews is inversely proportional to the average rating per review as greater diversity tends to offset general fan bias. What is also interesting is that the average review score hit an all-time low in 2010 before recovering as shown in the heatmap and its corresponding plots. It is unclear whether this was truly some industry wide trend or something more idiosyncratic to MA's readership.
+						</p>
+					</div>
+				</div>
+				<p class="text-center">
+				{% include heatmap ignore missing %}
+				</p>
+				<p class="text-left">
+				<a class="btn btn-primary" data-toggle="collapse" href="#avgnumworldmap" aria-expanded="false" aria-controls="avgnumworldmap">
+						Details
+				</a>
+				</p>
+				<div class="collapse" id="avgnumworldmap">
+					<div class="well">
+						<p class="text-left">
+						Metal is a world-wide phenomenon with new bands emerging from all over the globe. However, metal seems to thrive more so in the United States and Europe versus other markets which makes sense given the genre's historical roots. But does that mean MA reviews have some inherit geographical bias to them?
+						</p>
+					</div>
+				</div>
+				<p class="text-center">
+				{% include avgnumworldmap ignore missing %}
+				</p>
+				<p class="text-left">
+				<a class="btn btn-primary" data-toggle="collapse" href="#avgratingsworldmap" aria-expanded="false" aria-controls="avgratingsworldmap">
+						Details
+				</a>
+				</p>
+				<div class="collapse" id="avgratingsworldmap">
+					<div class="well">
+						<p class="text-left">
+						Rating scores seem to be evenly distributed regardless of regardless of band pedigree. For example, Russia has an average score of 76.7% over 1060 reviews while the United States has an average of 76.5% over 29745 reviews. It just goes to show that metal fans are equally critical across the globe!
+						</p>
+					</div>
+				</div>
+				<p class="text-center">
+				{% include avgratingsworldmap ignore missing %}
+				</p>
+				<p class="text-left">
+				<a class="btn btn-primary" data-toggle="collapse" href="#genres" aria-expanded="false" aria-controls="genres">
+						Details
+				</a>
+				</p>
+				<div class="collapse" id="genres">
+					<div class="well">
+						<p class="text-left">
+						MA is extremely flexible when it comes to a band's genre classification allowing users to mix and match them as they please. In fact, a hundred thousand plus reviews yielded over three thousand unique genres of metal! However, on further inspection, I was able to refine these categories into a more standardized subset to get a better handle on any inherit genre bias that may exist within the community at large.
+						</p>
+						<p class="text-left">
+						The three most popular genres were black, death, and heavy which makes sense given that most extreme metal falls under the first two while the metal's roots lie with the third. The next three, thrash, progressive, and power respectively, are also very popular which is also to be expected given that thrash and power dominated most of the 80s while progressive came to the fore in the 90s. Regardless, this dataset has quite a lot of metal diversity in it which should help our classifier generalize better across all forms of metal.
+						</p>
+					</div>
+				</div>
+				<p class="text-center">
+				{% include genres ignore missing %}
+				</p>
+				<p class="text-left">
+				<a class="btn btn-primary" data-toggle="collapse" href="#avgratinggenres" aria-expanded="false" aria-controls="avgratinggenres">
+						Details
+				</a>
+				</p>
+				<div class="collapse" id="avgratinggenres">
+					<div class="well">
+						<p class="text-left">
+						Notice that no matter the genre, review scores are fairly uniform throughout. I personally found this very surprising as I tend to believe certain genres are more positively received than others. However, it comes as no surprise to me that nu-metal is generally reviewed more harshly than genres given its clear stigma among both critics and fans alike.
+						</p>
+					</div>
+				</div>
+				<p class="text-center">
+				{% include avgratingbygenre ignore missing %}
+				</p>
+				<p class="text-left">
+				<a class="btn btn-primary" data-toggle="collapse" href="#avgwordsperyear" aria-expanded="false" aria-controls="avgwordsperyear">
+						Details
+				</a>
+				</p>
+				<div class="collapse" id="avgwordsperyear">
+					<div class="well">
+						<p class="text-left">
+						MA does not have an official minimum or maximum word count per review. As the site grew in popularity though so did the community's verbosity, reaching a peek average word count per review in 2013 (648). However, since then the average word count per review has pretty much leveled out regardless of sentiment.
+						</p>
+					</div>
+				</div>
+				<p class="text-center">
+				{% include avgwordsbyyear ignore missing %}
+				</p>
+		</div>
+		<div class="container" id="tokenization">
+			<h3 class="title text-left">Tokinization</h3>
+				<p class="text-left">
+				<a class="btn btn-primary" data-toggle="collapse" href="#wordproc" aria-expanded="false" aria-controls="wordproc">
+						Details
+				</a>
+				</p>
+				<div class="collapse" id="wordproc">
+					<div class="well">
+						<p class="text-left">As in all NLP workflows, I had to decide to how to process the unstructured text of each review. All reviews were scraped directly as UTF-8 English text, and as a result I heavily relied on <strong><a href="https://spaCy.io" target="_blank">spaCy's</a></strong> English language tokenization engine after removing superfluous whitespace, newline, and accent characters. However, spaCy treats contractions as two separate tokens for its entity recogniztion pipeline so as part of my general text processing I also expanded all contractions as well. All words were then lemmatized to ensure morphologically similar words were treated the same.
+						</p>
+						<p class="text-left">spaCy's pipelines are both I/O and CPU intensive since they are neural based. Consquently, I batched processed all reviews over sixteen cores using Python's native <strong><a href="https://docs.python.org/3.6/library/multiprocessing.html" target="_blank">multiprocessing library</a></strong> to distribute the load. This resulted in several orders of magnitude speed-up.
+						</p>
+					</div>
+				</div>
+				<p class="text-center">
+				<img src="../static/img/pipeline.svg" alt="spacy pipeline"/>
+				</p>
+				<footer class="blockquote-footer text-center"><cite><a href="https://spacy.io/usage/processing-pipelines" target="_blank">Source: Language Processing Pipelines</a></cite></footer>
+				<p class="text-left">
+				<a class="btn btn-primary" data-toggle="collapse" href="#wordcloud" aria-expanded="false" aria-controls="wordcloud">
+						Details
+				</a>
+				</p>
+				<div class="collapse" id="wordcloud">
+					<div class="well">
+						<p class="text-left"><strong><a href="http://amueller.github.io/word_cloud" target="_blank">Wordclouds</a></strong> are popular graphs to give a visual sense of both vocabulary and frequency. MA reviews are rich in language as this cloud clearly indicates.
+					</div>
+				</div>
+				<p class="text-left">
+				<img src="../static/img/wordcloud.png" alt="Wordcloud"/>
+				</p>
+		</div>
+		<div class="container" id="wordembeddings">
+			<h3 class="title text-left">Word Embeddings</h3>
+				<p class="text-left">
+				<a class="btn btn-primary" data-toggle="collapse" href="#tsne" aria-expanded="false" aria-controls="tsne">
+						Details
+				</a>
+				</p>
+				<div class="collapse" id="tsne">
+					<div class="well">
+						<p class="text-left">All state-of-the-art NLP models involve first vectorizing a dataset's vocabulary into an n-dimensional continuous vector space called a word embedding. Popular word embedding models today include <strong><a href="https://en.wikipedia.org/wiki/Word2vec" tatget="_blank">Word2vec</a></strong> and <strong><a href="https://nlp.stanford.edu/projects/glove/" target="_blank">GloVe</a></strong>. Unfortunately, because word embeddings are so high dimensional it is typically impossible to visualize them without some form of dimensionality reduction technique. One very popular technique is the <strong><a href="https://lvdmaaten.github.io/tsne" target="_blank">t-distributed Stochastic Neighbor Embedding (t-SNE)</a></strong> which unlike Principal Component Analysis attempts to preserve inter-vector similarity during its dimensional reduction phase.
+						</p>
+						<p class="text-left">t-SNE graphs can be tricky to interpret though, and <strong><a href="https://distill.pub/2016/misread-tsne" target="_blank">the perplexity number can have a significant impact on its output</a></strong>. However, below the groupings are pretty intuitive with certain entities such as years and locations forming tight groups. What's fascinating is that words that are not even remotely similar on the surface can be semantically similar in context. For example, the word vectors for "overproduced", "artifical", and "synthetic" also form a tight group. 
+					</div>
+				</div>
+				<p class="text-center">
+				{% include tsne ignore missing %}
+				</p>
+		</div>
+		<div class="container" id="sentimentanalysis">
+			<h3 class="title text-left">Sentiment Analysis</h3>
+				<p class="text-left">
+				<a class="btn btn-primary" data-toggle="collapse" href="#sentiment" aria-expanded="false" aria-controls="sentiment">
+						Details
+				</a>
+				</p>
+				<div class="collapse" id="sentiment">
+					<div class="well">
+						<p class="text-left">MA reviews are scored on a percentage scale ranging from 0 to 100%. I treated all reviews with a rating of 80% or higher as "positive" and the rest as "negative" in order to frame my objective function as a binary classification problem. A more nuanced approach would have been to have a "neutral" sentiment in addition to "positive" and "negative" and then treat my objective as a multiclassification problem instead. But in the interest of simplicity, I stuck with binary classification. I then performed a 90/10 split to subdivide my dataset between train and dev sets respectively.
+						</p>
+						<p class="text-left">In order to get some kind of baseline performance, I first built a simple model using sklearn's <strong><a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html" target="_blank">CountVectorizer</a></strong> module to construct a simple term frequency matrix and then fed that into both a <strong><a href="https://scikit-learn.org/stable/modules/naive_bayes.html#multinomial-naive-bayes" target="_blank">Multinominal Naive Bayes</a></strong> and <strong><a href="https://scikit-learn.org/stable/modules/svm.html#classification" target="_blank">Linear SVC</a></strong> classifiers. Both of them performed poorly though in the end, only being able to gauge a review's sentiment a little over half the time. Not completely unexpected as tradition bag-of-words/sparse vector approaches typically perform significantly worse than word embedding/dense vector ones. I then turned to using spaCy's built-in text classifier pipeline but fine-tuned it with my own word embedding space.
+						</p>
+						<p class="text-left">The results were pretty outstanding training spaCy's built-in text classifier which was able to achieve an accuracy of over 91%! Below is the final confusion matrix which can be used to fine-tune the model further by looking for any inherit patterns in reviews it classified incorrectly.
+					</div>
+                                        <script src="../static/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+                                        <script>
+                                            $(document).ready(function() {
+                                                $("#analyzeForm").submit(function(e){
+                                                    e.preventDefault()
+                                                    var text = $("#analyzeFormInput").val();
+                                                    $.ajax({
+                                                        type: "GET",
+                                                        url: "/analyze",
+                                                        data: {review: text},
+                                                        success: function(response) {
+                                                            $("#analyzeResult").html(response);
+                                                        },
+                                                        error: function(xhr) {
+                                                            $("#analyzeResult").html("<strong style='color:red'>Error</strong>");
+                                                        }
+                                                    });
+                                                });
+                                            });
+                                        </script>
+                                        <form id="analyzeForm" action="">
+                                            <div class="form-group">
+                                                <textarea class="form-control" id="analyzeFormInput" rows="3" placeholder="Write an original review or copy/paste one here and then hit 'Analyze' to have my classifer output the probability it is of positive sentiment."></textarea>
+                                                <button type="submit" class="btn btn-primary">Analyze</button>
+                                            </div>
+                                        </form>
+                                        <div id="analyzeResult"></div>
+				</div>
+				<p class="text-center"><font size="6">Training Set</font></p>
+				<div class="section" data-background-color="black">
+					<div class="content">
+						<div class="social-description">
+							<h2>0.6033</h2>
+							<p>MultinomialNB</p>
+						</div>
+						<div class="social-description">
+							<h2>0.7211</h2>
+							<p>LinearSVC</p>
+						</div>
+						<div class="social-description">
+							<h2>0.9160</h2>
+							<p>RNN</p>
+						</div>
+					</div>
+				</div>
+				<p class="text-center"><font size="6">Test Set</font></p>
+				<div class="section" data-background-color="black">
+					<div class="content">
+						<div class="social-description">
+							<h2>0.5933</h2>
+							<p>MultinomialNB</p>
+						</div>
+						<div class="social-description">
+							<h2>0.5566</h2>
+							<p>LinearSVC</p>
+						</div>
+						<div class="social-description">
+							<h2>0.9150</h2>
+							<p>RNN</p>
+						</div>
+					</div>
+				</div>
+				<p class="text-left">
+				<img src="../static/img/confusion.png" alt="Confusion Matrix"/>
+				</p>
+		</div>
+		<div class="container" id="credits">
+		   <h3 class="title text-left">Credits</h3>
+		   <p class="text-left">
+		   	<ul>
+				<li>All interactive graphs created with <strong><a href="https://bokeh.pydata.org/en/latest" target="_blank">bokeh</a></strong></li>
+				<li>All text processing and neural modelling done with <strong><a href="https://spacy.io" target="_blank">spaCy</a></strong> and <strong><a href="http://www.keras.io" target="_blank">Keras</a></strong></li>
+				<li>All non-neural modelling done with <strong><a href="https://scikit-learn.org" target="_blank">scikit-learn</a></strong>
+				<li>All code written in <strong><a href="https://jupyter.org" target="_blank">Jupyter</a></strong>
+				<li>All music performed by <strong><a href="https://en.wikipedia.org/wiki/Type_O_Negative" target="_blank" style="color:green">Type O Negative</a></strong>
+		   	</ul>
+		   </p>
+		</div>
+		</div>
+        <footer class="footer">
+		<div class="container" id="contact">
+			<nav>
+				<ul class="social-buttons">
+					<li>
+						<a href="https://github.com/pisymbol/deepmetal" class="btn btn-icon btn-neutral btn-github btn-round">
+							<i class="fa fa-github"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://youtube.com/pisymbol" class="btn btn-icon btn-neutral btn-youtube btn-round">
+							<i class="fa fa-youtube"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.linkedin.com/in/alexandersack314/" class="btn btn-icon btn-neutral btn-linkedin btn-round">
+							<i class="fa fa-linkedin"></i>
+						</a>
+					</li>
+					<li>
+						<a href="mailto:alexander.sack@mg.thedataincubator.com">
+							<i class="fa fa-envelope"></i>
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="copyright">
+				&copy; 2019 Alexander Sack, Powered by <a href="https://flask.pocoo.org" target="_target">Flask</a> and <a href="https://getbootstrap.com" target="_blank">Bootstrap</a>
+			</div>
+		</div>
+	</footer>
+    </div>
+</body>
+<!--   Core JS Files   -->
+<script src="../static/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="../static/js/core/popper.min.js" type="text/javascript"></script>
+<script src="../static/js/core/bootstrap.min.js" type="text/javascript"></script>
+<script src="../static/js/plugins/moment.min.js"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="../static/js/plugins/bootstrap-switch.js"></script>
+<!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+<script src="../static/js/plugins/bootstrap-tagsinput.js"></script>
+<!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+<script src="../static/js/plugins/bootstrap-selectpicker.js" type="text/javascript"></script>
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+<script src="../static/js/plugins/jasny-bootstrap.min.js"></script>
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="../static/js/plugins/nouislider.min.js" type="text/javascript"></script>
+<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+<script src="../static/js/plugins/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+<script src="../static/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // the body of this function is in static/js/now-ui-kit.js
+        nowuiKit.initContactUsMap();
+    });
+</script>
+
+</html>

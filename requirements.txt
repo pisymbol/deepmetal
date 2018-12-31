@@ -1,0 +1,14 @@
+gunicorn==19.9.0
+requests==2.20.0
+pandas
+numpy
+bokeh
+seaborn
+matplotlib
+wordcloud
+spacy
+scikit-learn
+flask
+jinja2
+pip
+simplejson
