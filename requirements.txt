@@ -12,3 +12,5 @@ flask
 jinja2
 pip
 simplejson
+bs4
+fake_useragent
