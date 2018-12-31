@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="navbar-translate">
-                <a class="navbar-brand" href="http://thedataincubator.com" rel="tooltip" title="The Data Incubator Project" data-placement="bottom">
+                <a class="navbar-brand" href="http://thedataincubator.com" rel="tooltip" title="The Data Incubator Project" target="_blank" data-placement="bottom">
                    TDI
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,7 +66,7 @@
         <div class="section" data-background-color="black">
             <div class="container" id="introduction">
                 <h3 class="title text-left">Introduction</h3>
-				<p class="text-left"><strong><a href="https://en.wikipedia.org/wiki/Sentiment_analysis" target="_blank">Opinion mining or more formally, sentiment analysis</a></strong>, remains one of the most actively researched topics in natural language processing today. In this capstone, I scraped hundred of thousands of user-generated metal reviews from the <strong><a href="http://www.metal-archives.com" target="_blank">Encyclopaedia Metallum: The Metal-Archives website</a></strong> in order to build a state-of-the-art sentiment classifier using deep learning.
+				<p class="text-left"><strong><a href="https://en.wikipedia.org/wiki/Sentiment_analysis" target="_blank">Opinion mining or more formally, sentiment analysis</a></strong>, remains one of the most actively researched topics in natural language processing today. In this capstone, I scrape hundred of thousands of user-generated metal reviews from the <strong><a href="http://www.metal-archives.com" target="_blank">Encyclopaedia Metallum: The Metal-Archives website</a></strong> in order to build a state-of-the-art sentiment classifier using deep learning. And although this project was solely focused on metal reviews, the techniques and tools I utilized can be directly applied to any modern day NLP workflow. 
 				</p>
 			</div>
             <div class="container" id="encyclopaedia_metallum">
@@ -126,7 +126,7 @@
 				<div class="collapse" id="heatmap">
 					<div class="well">
 						<p class="text-left">
-						Since 2002, the number of reviews have grown steadily before reaching a peek in 2008. Notice that the number of reviews is inversely proportional to the average rating per review as greater diversity tends to offset general fan bias. What is also interesting is that the average review score hit an all-time low in 2010 before recovering as shown in the heatmap and its corresponding plots. It is unclear whether this was truly some industry wide trend or something more idiosyncratic to MA's readership.
+						Since 2002, the number of reviews have grown steadily before reaching a peek in 2008. Notice that the number of reviews is inversely proportional to the average rating per review as greater diversity tends to offset general fan bias. What's also interesting is that the average rating hit an all-time low in 2010 before recovering as shown in the heatmap and its corresponding plots. It's unclear whether this was truly some industry wide trend or something more idiosyncratic to MA's readership.
 						</p>
 					</div>
 				</div>
@@ -141,7 +141,7 @@
 				<div class="collapse" id="avgnumworldmap">
 					<div class="well">
 						<p class="text-left">
-						Metal is a world-wide phenomenon with new bands emerging from all over the globe. However, metal seems to thrive more so in the United States and Europe versus other markets which makes sense given the genre's historical roots. But does that mean MA reviews have some inherit geographical bias to them?
+						Metal is a world-wide phenomenon with new bands emerging from all over the globe. However, metal seems to thrive more so in the United States and Europe versus other markets which makes sense given the genre's historical roots.
 						</p>
 					</div>
 				</div>
@@ -156,7 +156,7 @@
 				<div class="collapse" id="avgratingsworldmap">
 					<div class="well">
 						<p class="text-left">
-						Rating scores seem to be evenly distributed regardless of regardless of band pedigree. For example, Russia has an average score of 76.7% over 1060 reviews while the United States has an average of 76.5% over 29745 reviews. It just goes to show that metal fans are equally critical across the globe!
+						Ratings seem to be evenly distributed regardless of a band's pedigree. For example, Russia has an average score of 76.7% over 1060 reviews while the United States has an average of 76.5% over 29745 reviews. It just goes to show that metal fans are equally critical across the globe!
 						</p>
 					</div>
 				</div>
@@ -171,10 +171,10 @@
 				<div class="collapse" id="genres">
 					<div class="well">
 						<p class="text-left">
-						MA is extremely flexible when it comes to a band's genre classification allowing users to mix and match them as they please. In fact, a hundred thousand plus reviews yielded over three thousand unique genres of metal! However, on further inspection, I was able to refine these categories into a more standardized subset to get a better handle on any inherit genre bias that may exist within the community at large.
+						MA has no hard and fast rules when it comes to a band's genre allowing its users to mix and match them as they please. In fact, a hundred thousand plus reviews yielded over three thousand unique genres of metal! However, on further inspection, I was able to refine these categories into a more standardized subset to get a better handle on any inherit genre bias that may exist within the community at large.
 						</p>
 						<p class="text-left">
-						The three most popular genres were black, death, and heavy which makes sense given that most extreme metal falls under the first two while the metal's roots lie with the third. The next three, thrash, progressive, and power respectively, are also very popular which is also to be expected given that thrash and power dominated most of the 80s while progressive came to the fore in the 90s. Regardless, this dataset has quite a lot of metal diversity in it which should help our classifier generalize better across all forms of metal.
+						The three most popular genres were black, death, and heavy which makes sense given that most extreme metal falls under the first two while the scene's roots lie with the third. The next three, thrash, progressive, and power respectively, are also very popular which is also to be expected given that thrash and power dominated most of the 80s while progressive came to the fore in the 90s. Regardless, this dataset has quite a lot of metal diversity to it which should help my classifier generalize better across all genres of metal.
 						</p>
 					</div>
 				</div>
@@ -189,7 +189,7 @@
 				<div class="collapse" id="avgratinggenres">
 					<div class="well">
 						<p class="text-left">
-						Notice that no matter the genre, review scores are fairly uniform throughout. I personally found this very surprising as I tend to believe certain genres are more positively received than others. However, it comes as no surprise to me that nu-metal is generally reviewed more harshly than genres given its clear stigma among both critics and fans alike.
+						Notice that no matter the genre, review scores are fairly uniform throughout. I personally found this very surprising as I tend to believe certain genres are more positively received than others. However, it comes as no surprise to me that nu-metal is generally reviewed more harshly than other genres given its clear stigma among both critics and fans alike.
 						</p>
 					</div>
 				</div>
@@ -221,9 +221,9 @@
 				</p>
 				<div class="collapse" id="wordproc">
 					<div class="well">
-						<p class="text-left">As in all NLP workflows, I had to decide to how to process the unstructured text of each review. All reviews were scraped directly as UTF-8 English text, and as a result I heavily relied on <strong><a href="https://spaCy.io" target="_blank">spaCy's</a></strong> English language tokenization engine after removing superfluous whitespace, newline, and accent characters. However, spaCy treats contractions as two separate tokens for its entity recogniztion pipeline so as part of my general text processing I also expanded all contractions as well. All words were then lemmatized to ensure morphologically similar words were treated the same.
+						<p class="text-left">As in all NLP workflows, I had to decide to how to process the unstructured text of each review. All reviews were scraped directly as UTF-8 English text, and as a result I heavily relied on <strong><a href="https://spaCy.io" target="_blank">spaCy's</a></strong> English language tokenization engine after removing superfluous whitespace, newline, and accent characters. However, spaCy treats contractions as two separate tokens for its entity recogniztion engine so as part of my general text processing I also expanded all contractions as well. All tokens were then lemmatized to ensure morphologically similar words were treated the same.
 						</p>
-						<p class="text-left">spaCy's pipelines are both I/O and CPU intensive since they are neural based. Consquently, I batched processed all reviews over sixteen cores using Python's native <strong><a href="https://docs.python.org/3.6/library/multiprocessing.html" target="_blank">multiprocessing library</a></strong> to distribute the load. This resulted in several orders of magnitude speed-up.
+						<p class="text-left">spaCy's pipelines are both I/O and CPU intensive since they are neural based. Consquently, I batched processed all reviews over sixteen cores using Python's native <strong><a href="https://docs.python.org/3.6/library/multiprocessing.html" target="_blank">multiprocessing library</a></strong> to distribute the load. This resulted in several orders of magnitude of speed-up.
 						</p>
 					</div>
 				</div>
@@ -254,9 +254,9 @@
 				</p>
 				<div class="collapse" id="tsne">
 					<div class="well">
-						<p class="text-left">All state-of-the-art NLP models involve first vectorizing a dataset's vocabulary into an n-dimensional continuous vector space called a word embedding. Popular word embedding models today include <strong><a href="https://en.wikipedia.org/wiki/Word2vec" tatget="_blank">Word2vec</a></strong> and <strong><a href="https://nlp.stanford.edu/projects/glove/" target="_blank">GloVe</a></strong>. Unfortunately, because word embeddings are so high dimensional it is typically impossible to visualize them without some form of dimensionality reduction technique. One very popular technique is the <strong><a href="https://lvdmaaten.github.io/tsne" target="_blank">t-distributed Stochastic Neighbor Embedding (t-SNE)</a></strong> which unlike Principal Component Analysis attempts to preserve inter-vector similarity during its dimensional reduction phase.
+						<p class="text-left">All state-of-the-art NLP models involve first vectorizing a dataset's vocabulary into an n-dimensional continuous semantic space called a word embedding. Popular word embedding models today include <strong><a href="https://en.wikipedia.org/wiki/Word2vec" tatget="_blank">Word2vec</a></strong> and <strong><a href="https://nlp.stanford.edu/projects/glove/" target="_blank">GloVe</a></strong>. Unfortunately, because word embeddings are highly dimensional it is typically impossible to visualize them without some form of dimensionality reduction technique. One very popular technique is the <strong><a href="https://lvdmaaten.github.io/tsne" target="_blank">t-distributed Stochastic Neighbor Embedding (t-SNE)</a></strong> which unlike Principal Component Analysis attempts to preserve inter-vector similarity during its dimensional reduction phase.
 						</p>
-						<p class="text-left">t-SNE graphs can be tricky to interpret though, and <strong><a href="https://distill.pub/2016/misread-tsne" target="_blank">the perplexity number can have a significant impact on its output</a></strong>. However, below the groupings are pretty intuitive with certain entities such as years and locations forming tight groups. What's fascinating is that words that are not even remotely similar on the surface can be semantically similar in context. For example, the word vectors for "overproduced", "artifical", and "synthetic" also form a tight group. 
+						<p class="text-left">t-SNE graphs can be tricky to interpret though, and <strong><a href="https://distill.pub/2016/misread-tsne" target="_blank">the perplexity number can have a significant impact on its output</a></strong>. However, as you can see below the groupings are pretty intuitive with certain entities such as years and locations forming tight groups. What's fascinating is that words that are not even remotely similar on the surface can be semantically similar in context. For example, the word vectors for "overproduced", "artifical", and "synthetic" also form a tight group. 
 					</div>
 				</div>
 				<p class="text-center">
@@ -274,9 +274,9 @@
 					<div class="well">
 						<p class="text-left">MA reviews are scored on a percentage scale ranging from 0 to 100%. I treated all reviews with a rating of 80% or higher as "positive" and the rest as "negative" in order to frame my objective function as a binary classification problem. A more nuanced approach would have been to have a "neutral" sentiment in addition to "positive" and "negative" and then treat my objective as a multiclassification problem instead. But in the interest of simplicity, I stuck with binary classification. I then performed a 90/10 split to subdivide my dataset between train and dev sets respectively.
 						</p>
-						<p class="text-left">In order to get some kind of baseline performance, I first built a simple model using sklearn's <strong><a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html" target="_blank">CountVectorizer</a></strong> module to construct a simple term frequency matrix and then fed that into both a <strong><a href="https://scikit-learn.org/stable/modules/naive_bayes.html#multinomial-naive-bayes" target="_blank">Multinominal Naive Bayes</a></strong> and <strong><a href="https://scikit-learn.org/stable/modules/svm.html#classification" target="_blank">Linear SVC</a></strong> classifiers. Both of them performed poorly though in the end, only being able to gauge a review's sentiment a little over half the time. Not completely unexpected as tradition bag-of-words/sparse vector approaches typically perform significantly worse than word embedding/dense vector ones. I then turned to using spaCy's built-in text classifier pipeline but fine-tuned it with my own word embedding space.
+						<p class="text-left">In order to get some kind of baseline performance, I first built a simple model using sklearn's <strong><a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html" target="_blank">CountVectorizer</a></strong> module to construct a simple term frequency matrix and then fed that into both a <strong><a href="https://scikit-learn.org/stable/modules/naive_bayes.html#multinomial-naive-bayes" target="_blank">Multinominal Naive Bayes</a></strong> and <strong><a href="https://scikit-learn.org/stable/modules/svm.html#classification" target="_blank">Linear SVC</a></strong> classifier. Both of them performed poorly though in the end, only being able to gauge a review's sentiment a little over half the time. Not completely unexpected as tradition bag-of-words/sparse vector approaches typically perform significantly worse than word embedding/dense vector ones. I then turned to training spaCy's built-in text classifier pipeline but fine-tuned it with my own word embedding space.
 						</p>
-						<p class="text-left">The results were pretty outstanding training spaCy's built-in text classifier which was able to achieve an accuracy of over 91%! Below is the final confusion matrix which can be used to fine-tune the model further by looking for any inherit patterns in reviews it classified incorrectly.
+						<p class="text-left">The results were pretty outstanding training and I was able to achieve an accuracy of over 91%! Below is the final confusion matrix which can be used to fine-tune the model further by looking for any inherit patterns in reviews it classified incorrectly.
 					</div>
                                         <script src="../static/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
                                         <script>
