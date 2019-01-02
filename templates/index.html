@@ -285,9 +285,10 @@
                                                     e.preventDefault()
                                                     var text = $("#analyzeFormInput").val();
                                                     $.ajax({
-                                                        type: "GET",
+                                                        type: "POST",
                                                         url: "/analyze",
-                                                        data: {review: text},
+							contentType: 'text/plain;charset=UTF-8',
+                                                        data: text,
                                                         success: function(response) {
                                                             $("#analyzeResult").html(response);
                                                         },
@@ -296,15 +297,15 @@
                                                         }
                                                     });
                                                 });
-                                            });
-                                        </script>
-                                        <form id="analyzeForm" action="">
-                                            <div class="form-group">
-                                                <textarea class="form-control" id="analyzeFormInput" rows="3" placeholder="Write an original review or copy/paste one here and then hit 'Analyze' to have my classifer output the probability it is of positive sentiment."></textarea>
-                                                <button type="submit" class="btn btn-primary">Analyze</button>
-                                            </div>
-                                        </form>
-                                        <div id="analyzeResult"></div>
+					});
+					</script>
+					<form id="analyzeForm" action="">
+						<div class="form-group">
+							<textarea class="form-control" id="analyzeFormInput" rows="5" placeholder="Write an original review or copy/paste one here and then hit 'Analyze' to have my classifer output the probability it is of positive sentiment."></textarea>
+							<button type="submit" class="btn btn-primary">Analyze</button>
+						</div>
+					</form>
+					<div id="analyzeResult"></div>
 				</div>
 				<p class="text-center"><font size="6">Training Set</font></p>
 				<div class="section" data-background-color="black">

@@ -6,10 +6,10 @@
 
 import io
 import os
-import pandas as pd
 import re
 import requests
 import spacy
+import sys
 
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
@@ -56,14 +56,16 @@ def analyze():
         nlp = spacy.load('data/ma_model1')
 
     output = ""
-    review = request.args.get('review')
+    review = request.data.decode()
     if review:
         doc = nlp(review)
         if doc.cats['POSITIVE'] >= 0.5:
             color = "green"
+            output += '<p class="text-left"><i class="fa fa-thumbs-up" aria-hidden="true"></i></p>'
         else:
             color = "red"
-        output = '<strong style="color:{0}">{1}</strong>'.format(color, str(doc.cats))
+            output += '<p class="text-left"><i class="fa fa-thumbs-down" aria-hidden="true"></i></p>'
+        output += '<p class="text-left"><strong style="color:{0}">POSITIVE = {1}</strong></p>'.format(color, str(doc.cats['POSITIVE']))
 
     return encode_utf8(output)
 
