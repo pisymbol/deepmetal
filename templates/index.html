@@ -14,6 +14,7 @@
     <!-- CSS Files -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../static/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
+    <link href="../static/css/deepmetal.css" rel="stylesheet" />
 </head>
 
 <body class="profile-page">
@@ -35,6 +36,7 @@
                     <a class="dropdown-item" href="#eda">Exploratory Data Analysis</a>
                     <a class="dropdown-item" href="#tokenization">Tokenization</a>
                     <a class="dropdown-item" href="#wordembeddings">Word Embeddings</a>
+                    <a class="dropdown-item" href="#topicmodeling">Topic Modeling</a>
                     <a class="dropdown-item" href="#sentimentanalysis">Sentiment Analysis</a>
                     <a class="dropdown-item" href="#credits">Credits</a>
 		    <div class="dropdown-divider"></div>
@@ -66,9 +68,9 @@
         <div class="section" data-background-color="black">
             <div class="container" id="introduction">
                 <h3 class="title text-left">Introduction</h3>
-				<p class="text-left"><strong><a href="https://en.wikipedia.org/wiki/Sentiment_analysis" target="_blank">Opinion mining or more formally, sentiment analysis</a></strong>, remains one of the most actively researched topics in natural language processing today. In this capstone, I scrape hundreds of thousands of user-generated metal reviews from the <strong><a href="http://www.metal-archives.com" target="_blank">Encyclopaedia Metallum: The Metal-Archives website</a></strong> in order to build a state-of-the-art sentiment classifier using deep learning. And although this project was solely focused on analyzing metal reviews, the techniques and tools I utilized can be directly applied to any modern day NLP workflow.
+				<p class="text-left"><strong><a href="https://en.wikipedia.org/wiki/Sentiment_analysis" target="_blank">Opinion mining or more formally, sentiment analysis</a></strong>, remains one of the most actively researched topics in natural language processing today. In this capstone project, I scraped over a hundred thousand user-generated metal reviews from the <strong><a href="http://www.metal-archives.com" target="_blank">Encyclopaedia Metallum: The Metal-Archives website</a></strong> in order to build a sentiment classifier using deep learning. And although my capstone was solely focused on analyzing metal reviews, the techniques and tools I used can be directly applied to any state-of-the-art NLP workflow.
 				</p>
-			</div>
+	    </div>
             <div class="container" id="encyclopaedia_metallum">
                 <h3 class="title text-left">Encyclopaedia Metallum</h3>
 				<p class="text-left">
@@ -263,6 +265,23 @@
 				{% include tsne ignore missing %}
 				</p>
 		</div>
+		<div class="container" id="topicmodeling">
+			<h3 class="title text-left">Topic Modeling</h3>
+				<p class="text-left">
+				<a class="btn btn-primary" data-toggle="collapse" href="#topicmodel" aria-expanded="false" aria-controls="topicmodel">
+						Details
+				</a>
+				</p>
+				<div class="collapse" id="topicmodel">
+					<div class="well">
+						<p class="text-left">In addition to visualizating my word embeddings, I also performed some <strong><a href="https://en.wikipedia.org/wiki/Topic_model" target="_blank">topic modeling</a></strong> on my bag-of-words term frequency matrix in order to discover any hidden semantic structures within each review. I used <strong><a href="https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation" target="_blank">Latent Dirichlet allocation</a></strong> as my main unsupervised approach and graphed the top 20 topics below. Most reviews did focus on the record as a whole and were mainly concerned with "songs" and "riffs" which is to be expected.
+						</p>
+					</div>
+				</div>
+				<p class="text-center">
+				{% include topicmodel ignore missing %}
+				</p>
+		</div>
 		<div class="container" id="sentimentanalysis">
 			<h3 class="title text-left">Sentiment Analysis</h3>
 				<p class="text-left">
@@ -307,6 +326,21 @@
 					</form>
 					<div id="analyzeResult"></div>
 				</div>
+				<p class="text-center"><font size="6">Class Percentage Split</font></p>
+				<div class="section" data-background-color="black">
+					<div class="content">
+						<div class="social-description">
+							<h2>0.6023</h2>
+							<p>Positive</p>
+						</div>
+						<div class="social-description">
+						</div>
+						<div class="social-description">
+							<h2>0.3977</h2>
+							<p>Negative</p>
+						</div>
+					</div>
+				</div>
 				<p class="text-center"><font size="6">Training Set</font></p>
 				<div class="section" data-background-color="black">
 					<div class="content">
@@ -349,7 +383,7 @@
 		   <h3 class="title text-left">Credits</h3>
 		   <p class="text-left">
 		   	<ul>
-				<li>All interactive graphs created with <strong><a href="https://bokeh.pydata.org/en/latest" target="_blank">bokeh</a></strong></li>
+				<li>All interactive graphs created with <strong><a href="https://bokeh.pydata.org/en/latest" target="_blank">bokeh</a></strong> and <strong><a href="https://pyldavis.readthedocs.io/en/latest" target="_blank"> pyLDAvis</a></strong></li>
 				<li>All text processing and neural modelling done with <strong><a href="https://spacy.io" target="_blank">spaCy</a></strong> and <strong><a href="http://www.keras.io" target="_blank">Keras</a></strong></li>
 				<li>All non-neural modelling done with <strong><a href="https://scikit-learn.org" target="_blank">scikit-learn</a></strong>
 				<li>All code written in <strong><a href="https://jupyter.org" target="_blank">Jupyter</a></strong>

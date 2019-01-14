@@ -93,6 +93,7 @@ def index():
             avgratingbygenre='avgratingbygenre-plot.html',
             avgwordsbyyear='avgwordsbyyear-plot.html',
             tsne='tsne-plot.html',
+            topicmodel='lda.html',
             heatmap='heatmap-plot.html')
 
     return encode_utf8(html)
