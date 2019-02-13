@@ -98,6 +98,10 @@ def index():
 
     return encode_utf8(html)
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 if __name__ == '__main__':
     # FIXME: Move to separate settings file.
     app.run(port=33507, debug=True) # Heroku reserved port for flask applications
