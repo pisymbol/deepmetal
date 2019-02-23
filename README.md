@@ -28,7 +28,7 @@ Because spaCy's neural model is very computationally intensive, I processed all 
 
 ### Interactive Website
 
-Please visit [https://deepmetal.herokuapp.com](https://deepmetal.herokuapp.com) to see my final deliverable which was written in [Flask](http://flask.pocoo.org) and [Bootstrap](https://getbootstrap.com).
+Please visit [https://deepmetal.herokuapp.com](https://deepmetal.herokuapp.com) to see my final deliverable which was written in [Flask](http://flask.pocoo.org) and [Bootstrap](https://getbootstrap.com) and deployed on [Heroku](https://www.heroku.com).
 
 ### Authors
 
