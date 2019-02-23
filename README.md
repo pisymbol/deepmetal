@@ -20,11 +20,11 @@ Visualizations were mainly performed using [bokeh](https://bokeh.pydata.org/en/l
 
 * For unsupervised learning, I used sklearn to build a bag-of-words model and [pyLDAvis](https://github.com/bmabey/pyLDAvis) to visualize the most common topics per review.
 * For all tokenization and text processing I used [spaCy](https://spacy.io)
-* For building my word embedding matrix and final RNN I used [Tensorflow/Keras](https://www.tensorflow.org/)
+* For building my word embedding matrix (word2vec) and final RNN I used [Tensorflow/Keras](https://www.tensorflow.org/)
 
 ### Distributed Computing
 
-Because spaCy's neural model is very computationally intensive, I processed all reviews in batches and distributed them over several cores using Python's native [multiprocessing] (https://docs.python.org/3.6/library/multiprocessing.html) module. I have recently switched to using [Apache Spark](https://spark.apache.org) and [mlib](https://spark.apache.org/mllib) for my initial modeling work.
+Because spaCy's neural model is very computationally intensive, I processed all reviews in batches and distributed them over several cores using Python's native [multiprocessing](https://docs.python.org/3.6/library/multiprocessing.html) module. I have recently switched to using [Apache Spark](https://spark.apache.org) and [mlib](https://spark.apache.org/mllib) for my initial modeling work.
 
 ### Interactive Website
 
